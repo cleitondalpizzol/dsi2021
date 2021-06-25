@@ -8,8 +8,9 @@
     <body>
         <div class="container"> 
             <nav th:replace="layout :: menu">(menu)</nav>
-            </div class="border border-dark">
-                <form action="@{/equipamento/(form)}" th:object="${equipamento}" method="POST">
+            <div class="border border-dark">
+                <form th:action="@{/equipamento/(form)}" th:object="${equipamentos}" method="POST">
+                    <input type="hidden" th:field="*{id}">
                     <div class="form-group">
                         <div class="row">
                             <div class="col-6">
@@ -18,8 +19,6 @@
                             </div>
                         </div>
                     </div>   
-                </div class="border border-dark">
-                <form action="/equipamento" method="POST">
                     <div class="form-group">
                         <div class="row">
                             <div class="col-6">
@@ -28,11 +27,10 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit">Enviar</button>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
                 </form>
+            </div>
         </div>
-        
-        
         <div th:include="layout :: footer">(footer)</div>    
     </body>
 </html> 

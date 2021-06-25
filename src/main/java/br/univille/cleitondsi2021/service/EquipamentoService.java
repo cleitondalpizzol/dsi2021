@@ -9,5 +9,6 @@ import br.univille.cleitondsi2021.model.Equipamentos;
 @Service
 public interface EquipamentoService {
     public List<Equipamentos> getALL();
+    public void save(Equipamentos equipamentos);
 
 }

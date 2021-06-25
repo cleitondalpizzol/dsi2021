@@ -16,12 +16,14 @@
                     <tr>
                         <th>nome</th>
                         <th>setor</th>
+                        ,<th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr scope="row" th:each="umequipamento : ${listaEquipamentos}">
                         <td th:text="${umequipamento.nome}"></td>
                         <td th:text="${umequipamento.setor}"></td>
+                        <td><a th:href="@{'/equipamento/alterar/'+${umequipamento.id}}" class="btn btn-secondary">Alterar</a></td>
                     </tr>
                 </tbody>
 

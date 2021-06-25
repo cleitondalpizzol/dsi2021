@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -29,9 +30,14 @@ public class EquipamentosController {
     public ModelAndView novo(@ModelAttribute Equipamentos equipamentos){
         return new ModelAndView("equipamento/form");
     }
-    @PostMapping(params ="form")
+    @PostMapping(params="form")
     public ModelAndView save(Equipamentos equipamentos){
+        service.save(equipamentos);
+        return new ModelAndView("redirect:/equipamento");
+    }
+    @GetMapping("/alterar/{id}")
+    public ModelAndView alterar(@PathVariable ("id") Equipamentos equipamentos ){
         System.out.println(equipamentos.getNome());
-        return new ModelAndView("/equuipamento/form");
+        return new ModelAndView("/equipamento/form","equipamentos",equipamentos);
     }
 }

@@ -19,5 +19,11 @@ public class EquipamentosServiceImpl implements EquipamentoService{
     public List<Equipamentos> getALL() {
         return repository.findAll();
     }
+
+    @Override
+    public void save(Equipamentos equipamentos) {
+        repository.save(equipamentos);
+        
+    }
     
 }
