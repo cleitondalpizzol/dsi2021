@@ -11,7 +11,7 @@
 
             <a th:href="@{/equipamento/novo}" class="btn btn-primary">Novo Equipamento</a>
 
-            <table class="table">
+            <table class="table" id="equipamentos">
                 <thead>
                     <tr>
                         <th>nome</th>
@@ -23,14 +23,27 @@
                     <tr scope="row" th:each="umequipamento : ${listaEquipamentos}">
                         <td th:text="${umequipamento.nome}"></td>
                         <td th:text="${umequipamento.setor}"></td>
-                        <td><a th:href="@{'/equipamento/alterar/'+${umequipamento.id}}" class="btn btn-secondary">Alterar</a></td>
+                        <td>
+                            <a th:href="@{'/equipamento/alterar/'+${umequipamento.id}}" class="btn btn-secondary">Alterar</a>
+                            <button class="btn btn-danger js-delete"
+                                    th:data-id="${umequipamento.id}">
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                Excluir</button>
+                        </td>
                     </tr>
                 </tbody>
 
             </table>
         </div>
-        
-        
-        <div th:include="layout :: footer">(footer)</div>    
+        <div th:include="layout :: footer">(footer)</div> 
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#equipamentos").on('click', ".js-delete", function(){
+                    bootbox.confirm("Confirma a exclusão do registro?",function(result){
+                        console.log(result);
+                    });
+                });
+            });
+        </script>
     </body>
 </html> 
