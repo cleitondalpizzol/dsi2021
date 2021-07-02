@@ -40,4 +40,9 @@ public class EquipamentosController {
         System.out.println(equipamentos.getNome());
         return new ModelAndView("/equipamento/form","equipamentos",equipamentos);
     }
+    @GetMapping("delete/{id}")
+    public ModelAndView delete(@PathVariable ("id") Equipamentos equipamentos){
+        service.delete(equipamentos);
+        return new ModelAndView("redirect:/equipamento");
+    }
 }

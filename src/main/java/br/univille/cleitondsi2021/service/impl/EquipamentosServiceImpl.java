@@ -25,5 +25,11 @@ public class EquipamentosServiceImpl implements EquipamentoService{
         repository.save(equipamentos);
         
     }
+
+    @Override
+    public void delete(Equipamentos equipamentos) {
+        repository.delete(equipamentos);
+        
+    }
     
 }

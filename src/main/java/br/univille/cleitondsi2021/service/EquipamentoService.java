@@ -10,5 +10,6 @@ import br.univille.cleitondsi2021.model.Equipamentos;
 public interface EquipamentoService {
     public List<Equipamentos> getALL();
     public void save(Equipamentos equipamentos);
+    public void delete(Equipamentos equipamentos);
 
 }
